@@ -1,0 +1,249 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ff0ce8ba-479a-46f3-a3e2-c3002cc067e0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>BIKE ACCESSORIES</ID>
+  <Name>BIKE ACCESSORIES</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>BIKE ACCESSORIES</DataSourceID>
+  <Schema>
+    <xs:schema id="BIKE_x0020_ACCESSORIES" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="BIKE_x0020_ACCESSORIES" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="b555000b-e32a-4045-b787-db42665942b3">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_FACT" msprop:design-time-name="68acdd29-649e-4aef-93ca-df74e3d292a8" msprop:DbTableName="FACT" msprop:FriendlyName="FACT" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="transaction_id" msprop:design-time-name="3a9a5b33-a3a9-4570-bbfc-3c32d85e7fd5" msprop:DbColumnName="transaction_id" msprop:FriendlyName="transaction_id" type="xs:int" />
+                  <xs:element name="type_order_id" msprop:design-time-name="baead6c4-4793-4580-a924-8e72b3caf5ac" msprop:DbColumnName="type_order_id" msprop:FriendlyName="type_order_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="status_id" msprop:design-time-name="45f37810-0645-4bcb-ba53-c71dc206284d" msprop:DbColumnName="status_id" msprop:FriendlyName="status_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="transaction_date" msprop:design-time-name="099f5975-4bd3-42a4-a2ed-b43aeff8fbcf" msprop:DbColumnName="transaction_date" msprop:FriendlyName="transaction_date" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="product_num" msprop:design-time-name="a99f6c86-b046-4695-b553-79acf3e150fc" msprop:DbColumnName="product_num" msprop:FriendlyName="product_num" type="xs:int" minOccurs="0" />
+                  <xs:element name="customer_id" msprop:design-time-name="cc501ede-7b01-452e-ab53-5dee326baafe" msprop:DbColumnName="customer_id" msprop:FriendlyName="customer_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="total" msprop:design-time-name="5775d055-85f5-48eb-92db-6f9046cdd167" msprop:DbColumnName="total" msprop:FriendlyName="total" type="xs:double" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_TYPE_ORDER" msprop:design-time-name="5ef1b584-6c5b-4f55-97d5-f2b7d08609cc" msprop:DbTableName="DIM_TYPE_ORDER" msprop:FriendlyName="DIM_TYPE_ORDER" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="type_order_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="f570db86-8edc-4b90-8ee6-cb9895709b0a" msprop:DbColumnName="type_order_id" msprop:FriendlyName="type_order_id" type="xs:int" />
+                  <xs:element name="online_order" msprop:design-time-name="8605ef62-d896-4caf-9bbb-cfa8fefb502a" msprop:DbColumnName="online_order" msprop:FriendlyName="online_order" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_PRODUCT" msprop:design-time-name="899aba50-2181-457e-b455-6e8fcd6ee54a" msprop:DbTableName="DIM_PRODUCT" msprop:FriendlyName="DIM_PRODUCT" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="product_num" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="d4ee2b42-12f9-4eea-8272-1a6f7daa5e97" msprop:DbColumnName="product_num" msprop:FriendlyName="product_num" type="xs:int" />
+                  <xs:element name="product_id" msprop:design-time-name="664f1eab-d5c4-457b-86d6-c3dac5c2bc8e" msprop:DbColumnName="product_id" msprop:FriendlyName="product_id" type="xs:int" minOccurs="0" />
+                  <xs:element name="product_brand" msprop:design-time-name="96e5fc5d-2db9-42ca-b551-59e6be441b1d" msprop:DbColumnName="product_brand" msprop:FriendlyName="product_brand" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="product_line" msprop:design-time-name="f097786b-26d4-462a-9ee4-814908a99cd8" msprop:DbColumnName="product_line" msprop:FriendlyName="product_line" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="product_class" msprop:design-time-name="f21f6f9f-acb8-4bb5-895a-0850d96d702b" msprop:DbColumnName="product_class" msprop:FriendlyName="product_class" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="product_size" msprop:design-time-name="85b315c6-3ce3-4f9d-9d39-b986ce8b3c3b" msprop:DbColumnName="product_size" msprop:FriendlyName="product_size" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="list_price" msprop:design-time-name="89bc0fc2-e9b6-47eb-852e-e80711777d4c" msprop:DbColumnName="list_price" msprop:FriendlyName="list_price" type="xs:double" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_STATUS" msprop:design-time-name="7d4e55e4-012b-4871-b323-87529954bdf8" msprop:DbTableName="DIM_STATUS" msprop:FriendlyName="DIM_STATUS" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="status_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="64c4a171-19f7-4433-af1d-ae562b0fda69" msprop:DbColumnName="status_id" msprop:FriendlyName="status_id" type="xs:int" />
+                  <xs:element name="transaction_status" msprop:design-time-name="a2605fa5-144f-47a6-b367-3c0dd1e914f2" msprop:DbColumnName="transaction_status" msprop:FriendlyName="transaction_status" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_CUSTOMER" msprop:design-time-name="7a85dd1e-a693-47ac-99c7-d077f88d6b04" msprop:DbTableName="DIM_CUSTOMER" msprop:FriendlyName="DIM_CUSTOMER" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="customer_id" msprop:design-time-name="a1eef9e5-247d-4a83-8358-e52aa7c8c2d4" msprop:DbColumnName="customer_id" msprop:FriendlyName="customer_id" type="xs:int" />
+                  <xs:element name="gender" msprop:design-time-name="b21bb9a8-1b52-4f20-8b01-f2fb8840b6a7" msprop:DbColumnName="gender" msprop:FriendlyName="gender" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="past_3_years_bike_related_purchases" msprop:design-time-name="a0852d1f-b584-48ea-86fc-ed4053b3c177" msprop:DbColumnName="past_3_years_bike_related_purchases" msprop:FriendlyName="past_3_years_bike_related_purchases" type="xs:int" minOccurs="0" />
+                  <xs:element name="customer_dob" msprop:design-time-name="918b4ea5-1246-4e20-857e-a3f6babc3101" msprop:DbColumnName="customer_dob" msprop:FriendlyName="customer_dob" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="age_group" msprop:design-time-name="5e1dd963-2fbe-4e79-8486-0f8a28c34bf8" msprop:DbColumnName="age_group" msprop:FriendlyName="age_group" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="job_industry_category" msprop:design-time-name="4c536428-45f3-4c11-a4f0-f0907d0f4da1" msprop:DbColumnName="job_industry_category" msprop:FriendlyName="job_industry_category" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="tenure" msprop:design-time-name="2877357c-2dcf-4de9-b7d2-beea7b0b76bc" msprop:DbColumnName="tenure" msprop:FriendlyName="tenure" type="xs:int" minOccurs="0" />
+                  <xs:element name="state" msprop:design-time-name="81dfdd8a-028b-47f9-95d9-6614a307aba8" msprop:DbColumnName="state" msprop:FriendlyName="state" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="cus_category_id" msprop:design-time-name="df239ec6-238f-4491-8202-464efffb34d3" msprop:DbColumnName="cus_category_id" msprop:FriendlyName="cus_category_id" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_DATE" msprop:design-time-name="8fd70f42-e8b4-42b9-a977-934d2887c2d9" msprop:DbTableName="DIM_DATE" msprop:FriendlyName="DIM_DATE" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="transaction_date" msprop:design-time-name="e3ca475b-057b-417e-975f-8b8bb06a3a7a" msprop:DbColumnName="transaction_date" msprop:FriendlyName="transaction_date" type="xs:dateTime" />
+                  <xs:element name="transaction_month" msprop:design-time-name="a33cd11b-8b5d-4185-aa5f-1275f8e21852" msprop:DbColumnName="transaction_month" msprop:FriendlyName="transaction_month" type="xs:int" minOccurs="0" />
+                  <xs:element name="transaction_weekday" msprop:design-time-name="558fada3-6eca-4183-b4b7-1da9d1cb99af" msprop:DbColumnName="transaction_weekday" msprop:FriendlyName="transaction_weekday" type="xs:int" minOccurs="0" />
+                  <xs:element name="transaction_day" msprop:design-time-name="cdaa702e-86b5-4eb3-83b7-c88b763d8e17" msprop:DbColumnName="transaction_day" msprop:FriendlyName="transaction_day" type="xs:int" minOccurs="0" />
+                  <xs:element name="transaction_quarter" msprop:design-time-name="ee598167-633f-4605-ba4b-1bf6c27fa9c9" msprop:DbColumnName="transaction_quarter" msprop:FriendlyName="transaction_quarter" type="xs:int" minOccurs="0" />
+                  <xs:element name="transaction_year" msprop:design-time-name="23a10e2e-a485-494b-ba1b-570d5a49f354" msprop:DbColumnName="transaction_year" msprop:FriendlyName="transaction_year" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_CUS_CATEGORY" msprop:design-time-name="050c72db-ff02-47af-a976-d5f7c676dc5a" msprop:DbTableName="DIM_CUS_CATEGORY" msprop:FriendlyName="DIM_CUS_CATEGORY" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="cus_category_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="ea31ccf0-32e6-4eb7-890f-015475f4b326" msprop:DbColumnName="cus_category_id" msprop:FriendlyName="cus_category_id" type="xs:int" />
+                  <xs:element name="cus_category_name" msprop:design-time-name="ac2b08c5-a22e-499f-ad46-1e4b1165ba48" msprop:DbColumnName="cus_category_name" msprop:FriendlyName="cus_category_name" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="transaction_id" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_TYPE_ORDER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_TYPE_ORDER" />
+          <xs:field xpath="type_order_id" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_PRODUCT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_PRODUCT" />
+          <xs:field xpath="product_num" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_STATUS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_STATUS" />
+          <xs:field xpath="status_id" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_CUSTOMER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_CUSTOMER" />
+          <xs:field xpath="customer_id" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_DATE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_DATE" />
+          <xs:field xpath="transaction_date" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_CUS_CATEGORY_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_CUS_CATEGORY" />
+          <xs:field xpath="cus_category_id" />
+        </xs:unique>
+        <xs:keyref name="FK__DIM_CUSTO__cus_c__3C69FB99" refer="dbo_DIM_CUS_CATEGORY_Constraint1">
+          <xs:selector xpath=".//dbo_DIM_CUSTOMER" />
+          <xs:field xpath="cus_category_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__FACT__transactio__46E78A0C" refer="dbo_DIM_DATE_Constraint1">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="transaction_date" />
+        </xs:keyref>
+        <xs:keyref name="FK__FACT__type_order__44FF419A" refer="dbo_DIM_TYPE_ORDER_Constraint1">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="type_order_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__FACT__status_id__45F365D3" refer="dbo_DIM_STATUS_Constraint1">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="status_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__FACT__product_nu__47DBAE45" refer="dbo_DIM_PRODUCT_Constraint1">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="product_num" />
+        </xs:keyref>
+        <xs:keyref name="FK__FACT__customer_i__48CFD27E" refer="dbo_DIM_CUSTOMER_Constraint1">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="customer_id" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <BIKE_x0020_ACCESSORIES xmlns="" />
+  </Schema>
+</DataSourceView>

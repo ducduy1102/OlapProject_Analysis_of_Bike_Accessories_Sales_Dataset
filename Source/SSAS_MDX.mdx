@@ -1,0 +1,89 @@
+﻿--Câu 1. Thống kê tổng số giao dịch của tất cả những khách hàng ở tiểu bang NWS
+SELECT NON EMPTY { [Measures].[FACT Count] } ON COLUMNS, 
+{ [DIM CUSTOMER].[State].&[NSW] } ON ROWS
+FROM [Bike Accessories];
+
+--Câu 2. Thống kê doanh số của từng thương hiệu qua các quý
+SELECT NON EMPTY { [Measures].[Total] } ON 0, 
+NON EMPTY { ([DIM PRODUCT].[Product Brand].Children, [DIM DATE].[Transaction Quarter].Children) } ON 1
+FROM [Bike Accessories]; 
+
+-- Câu 3.Thống kê tổng đơn đặt hàng online của từng dòng sản phẩm trong tháng 4 năm 2017
+SELECT NON EMPTY { [Measures].[FACT Count] } ON 0, 
+NON EMPTY CrossJoin ([DIM PRODUCT].[Product Line].Children, [DIM DATE].[Transaction Month].Children, 
+						[DIM DATE].[Transaction Year].Children ) ON 1
+FROM ( SELECT ( { [DIM TYPE ORDER].[Online Order].&[True] } ) ON 0 
+	   FROM ( SELECT ( { [DIM DATE].[Transaction Year].&[2017] } ) ON 0
+			  FROM ( SELECT ( { [DIM DATE].[Transaction Month].&[4] } ) ON 0 
+					 FROM [Bike Accessories])));
+
+--Câu 4. Thống kê tổng hóa đơn theo từng nhóm khách hàng theo tháng trong năm.
+SELECT NON EMPTY { [Measures].[FACT Count] } ON 0, 
+NON EMPTY CrossJoin ([DIM DATE].[Transaction Month].Children, 
+[DIM DATE].[Transaction Year].Children, 
+[DIM CUSTOMER].[Cus Category Name].Children ) ON 1
+FROM [Bike Accessories];
+
+
+--Câu 5. Thống kê top 5 nhóm khách hàng thuộc bang VIC mua hàng nhiều nhất
+SELECT [Measures].[FACT Count] ON 0, 
+[DIM CUSTOMER].[Cus Category Name].Children ON 1 
+FROM ( SELECT ( TAIL ( ORDER ( 
+			DRILLDOWNLEVEL ( ([DIM CUSTOMER].[State].&[VIC],
+							  [DIM CUSTOMER].[Cus Category Name].Children) * 
+							  [DIM CUSTOMER].[Cus Category Id].Children), 
+							  [Measures].[FACT Count], BASC),5 ) ) ON 0 
+FROM [Bike Accessories]); 
+
+--Câu 6 Thống kê những khách hàng mua hàng hơn 9 lần và tổng số tiền mua hơn 10000$
+SELECT { [Measures].[Total], [Measures].[FACT Count] } ON 0, 
+{ ([DIM CUSTOMER].[Customer Id].Children ) } ON 1
+FROM ( SELECT 
+	 ( INTERSECT(
+			FILTER([DIM CUSTOMER].[Customer Id].Children, [Measures].[FACT Count] > 9),
+			FILTER([DIM CUSTOMER].[Customer Id].Children, [Measures].[Total]>10000))) ON 0 
+FROM [Bike Accessories]);
+
+
+--Câu 7.Thống kê danh sách và số lượng đơn hàng khách hàng nữ đã mua và đã thanh toán tại 
+--cửa hàng ngày 8/3/2017 không thuộc bang VIC
+SELECT [Measures].[FACT Count] ON 0,
+NON EMPTY( CrossJoin(
+				[DIM CUSTOMER].[Customer Id].CHILDREN,
+				EXCEPT(
+					  [DIM CUSTOMER].[State].[State],
+				   	  {[DIM CUSTOMER].[State].&[VIC]}
+				)
+	        )
+		  )ON 1
+FROM [Bike Accessories]
+WHERE ( [DIM CUSTOMER].[Gender].&[Female], [DIM TYPE ORDER].[Online Order].&[False], 
+[DIM STATUS].[Transaction Status].&[Approved], 
+[DIM DATE].[Transaction Date].&[2017-03-08T00:00:00] );
+
+--Câu 8. Thống kê top 5 sản phẩm bán chạy nhất trong từng bang
+SELECT [Measures].[FACT Count] ON 0, 
+([DIM PRODUCT].[Product Num].Children,
+[DIM CUSTOMER].[State].Children ) ON 1
+FROM ( SELECT ( HEAD ( ORDER ( 
+        [DIM PRODUCT].[Product Num].Children,[Measures].[FACT Count], BDESC),5) ) ON 0
+ FROM [Bike Accessories]);
+
+
+--Câu 9. Thống kê những khách hàng tiềm năng thuộc nhóm khách hàng từ 20 đến dưới 40 tuổi 
+--mua sản phẩm trong quý 1
+ SELECT NON EMPTY { [Measures].[FACT Count], [Measures].[Total] } ON 0, 
+ NON EMPTY { ([DIM CUSTOMER].[Customer Id].Children) } ON 1 
+ FROM ( SELECT ( { [DIM DATE].[Transaction Quarter].&[1] } ) ON 0 
+ FROM ( SELECT ( { [DIM CUSTOMER].[Age Group].&[U40] } ) ON 0 
+ FROM ( SELECT ( { [DIM CUSTOMER].[Cus Category Name].&[Potential Customer] } ) ON 0 
+ FROM [Bike Accessories]))) 
+ WHERE ( [DIM CUSTOMER].[Cus Category Name].&[Potential Customer], 
+ [DIM CUSTOMER].[Age Group].&[U40], [DIM DATE].[Transaction Quarter].&[1] );
+
+--Câu 10. Thống kê top 3 tháng có đơn hàng bị hủy nhiều nhất
+SELECT [Measures].[FACT Count] ON 0,
+	TopCount(
+		[DIM DATE].[Transaction Month].Children,3,[DIM DATE].[Transaction Date] ) ON 1
+FROM [Bike Accessories]
+WHERE [DIM STATUS].[Transaction Status].&[Cancelled];
